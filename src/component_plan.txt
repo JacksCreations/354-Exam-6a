@@ -1,0 +1,5 @@
+I would likely break this shopping cart down into 2 components.
+Those being product and shopping cart.
+
+I am only refering to THIS shopping cart.
+If we were talking about breaking down a whole online eCommerce shopping store I would have a lot more components than just the 2.

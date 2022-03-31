@@ -2,12 +2,35 @@ import React from 'react';
 import CartData from './cart.json';
 
 const Cart = () => {
+  //sums up all of the prices in the cart.json
+  // not familiar enough with advanced JS to do in one line
+  const getSubTotal = () => {
+    var total = 0;
+    var qty = 0;
+    for (var i = 0; i < 4; i++) {
+      qty = CartData.lineItems[i].qty;
+      total += CartData.lineItems[i].price * qty;
+    }
+    return total;
+  };
+
+  const getTax = () => {
+    var tax = 0;
+    for (var i = 0; i < CartData.lineItems.length; i++) {
+      tax += CartData.lineItems[i].price * 0.075;
+    }
+    tax = Math.round(tax * 100) / 100;
+    return tax;
+  };
+
   const getTotal = () => {
     var total = 0;
     for (var i = 0; i < 4; i++) {
-      total += CartData.;
-      console.log(total);
+      total += CartData.lineItems[i].price;
     }
+    total += CartData.shipping;
+    total += getTax();
+    return total;
   };
 
   return (
@@ -131,26 +154,40 @@ const Cart = () => {
 
               {/* <!-- subtotal --> */}
               <tr className="extracosts">
-                <td className="light">Shipping</td>
+                <td className="light">Subtotal</td>
                 <td colSpan="2" className="light"></td>
-                <td>{CartData.shipping}</td>
+                <td>${getSubTotal()}</td>
                 <td>&nbsp;</td>
               </tr>
 
               {/* <!-- add tax  section here --> */}
+              <tr className="extracosts">
+                <td className="light">Tax</td>
+                <td colSpan="2" className="light"></td>
+                <td>${getTax()}</td>
+                <td>&nbsp;</td>
+              </tr>
+
+              {/* shipping*/}
+              <tr className="extracosts">
+                <td className="light">Shipping</td>
+                <td colSpan="2" className="light"></td>
+                <td>${CartData.shipping}</td>
+                <td>&nbsp;</td>
+              </tr>
 
               <tr className="totalprice">
                 <td className="light">Total:</td>
                 <td colSpan="2">&nbsp;</td>
                 <td colSpan="2">
-                  <span className="thick">239.73</span>
+                  <span className="thick">${getTotal()}</span>
                 </td>
               </tr>
 
               {/* <!-- checkout btn --> */}
               <tr className="checkoutrow">
                 <td colSpan="5" className="checkout">
-                  <button id="submitbtn" onClick={getTotal}>
+                  <button id="submitbtn" onClick={getTax()} onClick={getTotal}>
                     Checkout Now!
                   </button>
                 </td>
