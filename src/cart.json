@@ -1,0 +1,34 @@
+{
+  "title": "354 React Cart",
+  "lineItems": [
+    {
+      "photo": "https://i.imgur.com/8goC6r6.png",
+      "qty": 1,
+      "product": "Design Bundle Package",
+      "price": 79.0
+    },
+    {
+      "photo": "https://i.imgur.com/RkzoXzZ.png",
+      "qty": 1,
+      "product": "Stuff On My Cat: The Book",
+      "price": 8.95
+    },
+    {
+      "photo": "https://i.imgur.com/vZ26Uwy.png",
+      "qty": 1,
+      "product": "SpongeBob's First 100 Episodes",
+      "price": 75.0
+    },
+    {
+      "photo": "https://i.imgur.com/tEdRnz4.png",
+      "qty": 1,
+      "product": "JavaScript and jQuery: The Missing Manual",
+      "price": 27.5
+    }
+  ],
+  "subtotal": 190.45,
+  "shipping": 35.0,
+  "taxRate": 0.075,
+  "tax": 14.28,
+  "total": 239.73
+}
